@@ -7,6 +7,8 @@ import com.akasharavinth.librarymanagement.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class DataManagement {
         return dataManagement;
     }
     List<Admin> adminList = new ArrayList<>();
+
 
     public void addAdmin(Admin a) {
         adminList.add(a);
@@ -45,7 +48,6 @@ public class DataManagement {
 
     //---------------------------------Book Based Data-----------------------------------
 
-    ObjectMapper objectMapper = new ObjectMapper();
     List<Book> bookList = new ArrayList<>();
 
     public List<Book> getBookList() {
