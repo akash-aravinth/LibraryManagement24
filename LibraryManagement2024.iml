@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jackson-annotations-2.17.0" level="project" />
     <orderEntry type="library" name="jackson-annotations-2.17.01" level="project" />
+    <orderEntry type="library" name="eclipsesource.jaxrs.provider.gson" level="project" />
   </component>
 </module>

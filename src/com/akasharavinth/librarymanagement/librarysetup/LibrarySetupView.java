@@ -6,11 +6,12 @@ import com.akasharavinth.librarymanagement.login.LoginView;
 import com.akasharavinth.librarymanagement.managebooks.ManageBooksView;
 import com.akasharavinth.librarymanagement.manageuser.ManageUserView;
 import com.akasharavinth.librarymanagement.models.Library;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.sql.DatabaseMetaData;
 import java.util.Scanner;
 
-public class LibrarySetupView {
+public class LibrarySetupView  {
     private LibrarySetupModel librarySetupModel;
     Scanner scanner = new Scanner(System.in);
 
@@ -23,23 +24,29 @@ public class LibrarySetupView {
     }
 
     public void initiateSetup() {
-        Library library = new Library();
+        long libraryId = 0;
         System.out.println("Enter LibraryName : ");
-        library.setLibraryName(scanner.next());
+        String libraryName = scanner.next();
         System.out.println("Enter Library Phone No : ");
-        library.setLibraryPhoneNo(scanner.nextLong());
+       try{
+           libraryId = scanner.nextLong();
+       }catch (Exception e){
+           showAlert("Please Enter Valid Moblie No : ");
+           initiateSetup();
+       }
         System.out.println("Enter Library MailId : ");
-        library.setLibraryEmailId(scanner.next());
+        String emailID = scanner.next();
         System.out.println("Enter Library Address : ");
-        library.setLibraryAddress(scanner.next());
-        librarySetupModel.setInitalValues(library);
+        String address = scanner.next();
+        librarySetupModel.createLibrary(libraryName,libraryId,emailID,address);
+
     }
 
     public void showAlert(String alert) {
         System.out.println(alert);
     }
 
-    public void onSetupComplete(Library library) {
+    public void onSetupComplete(Library library){
         System.out.println("Welcome To : " + library.getLibraryName());
         System.out.println("1 --> Manage Books\n2 --> Manage User\n3 --> Search Book\n4 --> Logout\n5 --> Go Back");
         int choice = scanner.nextInt();

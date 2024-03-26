@@ -67,7 +67,13 @@ public class ManageUserView {
         System.out.println("Enter User EmailId : ");
         String userEmailId = scanner.next();
         System.out.println("Enter User Phone No : ");
-        long userPhoneNo = scanner.nextLong();
+        long userPhoneNo = 0;
+        try{
+            userPhoneNo = scanner.nextLong();
+        }catch (Exception e ){
+            showAlert("Please Ebter valid PhoneNo : ");
+            getaddUserInfo();
+        }
         System.out.println("Enter User Address : ");
         String userAddress = scanner.next();
         manageUserModel.giveAddUser(userId, password, userEmailId, userPhoneNo, userAddress);
@@ -105,7 +111,13 @@ public class ManageUserView {
         System.out.println("Enter User EmailId : ");
         String userEmailId = scanner.next();
         System.out.println("Enter User Phone No : ");
-        long userPhoneNo = scanner.nextLong();
+        long userPhoneNo = 0;
+        try{
+            userPhoneNo = scanner.nextLong();
+        }catch (Exception e){
+            showAlert("Please Enter Valid PhoneNo : ");
+            getUpdateUser();
+        }
         System.out.println("Enter User Address : ");
         String userAddress = scanner.next();
         manageUserModel.giveUpdateUser(userId, password, userEmailId, userAddress, userPhoneNo);

@@ -6,6 +6,7 @@ import com.akasharavinth.librarymanagement.models.Library;
 import com.akasharavinth.librarymanagement.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class DataManagement {
         return dataManagement;
     }
     List<Admin> adminList = new ArrayList<>();
+
     public void addAdmin(Admin a) {
         adminList.add(a);
     }
@@ -27,6 +29,14 @@ public class DataManagement {
     }
 
     private Library library;
+
+    public Library getLibrary() {
+        return library;
+    }
+
+    public  void setLibrary(Library library){
+        this.library = library;
+    }
     public Library insertLibrary(Library library2) {
         this.library = library2;
         this.library.setLibraryId(1);
@@ -35,6 +45,7 @@ public class DataManagement {
 
     //---------------------------------Book Based Data-----------------------------------
 
+    ObjectMapper objectMapper = new ObjectMapper();
     List<Book> bookList = new ArrayList<>();
 
     public List<Book> getBookList() {

@@ -31,6 +31,7 @@ public class HomeView {
             }
             case 3: {
                 System.out.println("You Must Login and View The Books");
+                appStart();
                 break;
             }
             case 4: {
